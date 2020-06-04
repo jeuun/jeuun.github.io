@@ -1,37 +1,55 @@
-title: Hello, world! I'm David Freeman
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-permalink: ':title/'
-baseurl: "/flexible-jekyll" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-site-twitter: #if your site has a twitter account, enter it here
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-# Author Settings
-author: David Freeman # add your name
-author-img: david-freeman.jpg # add your photo
-about-author: I am a web developer focusing on front-end development. Always hungry to keep learning. # add description
-social-twitter: # add your Twitter handle
-social-facebook: # add your Facebook handle
-social-github: artemsheludko # add your Github handle
-social-linkedin: # add your Linkedin handle
-social-email: # add your Email address
+# Site settings
+title: BAEKJH
+brief-intro: BE Developer
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://baekjunho.github.io" # the base hostname & protocol for your site
 
-# Disqus
-discus-identifier: mr-brown # add your discus identifier
 
-# Tracker
-analytics: # Google Analytics
+permalink: /:title/
 
-# Build Settings
+# other links
+facebook_username: 010-8924-1810
+github_username:  BAEKJungHo
+# email: gy8971@gmail.com
+# linkedIn_username:
+
+description_footer: ""
+
+# comments
+# two ways to comment, only choose one, and use your own short name
+disqus_shortname: BAEKJH
+
+# Statistic Analysis
+# google_analytics_id: UA-124748625-1 # google analytics id
+
+# Build settings
 markdown: kramdown
-plugins:
-  - jekyll-sitemap
-  - jekyll-paginate
-  - jemoji
 
-paginate: 8
-paginate_path: "/page/:num"
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
+sass:
+  sass_dir:         _sass
+  style:            compressed
+
+# port
+# port: 1234
+
+# url
+category_dir: category/
+tag_dir: tag/
+
+# excerpt
+excerpt_separator: "\n\n\n\n"
+
+# paginate
+plugins: [jekyll-paginate]
+paginate: 7
