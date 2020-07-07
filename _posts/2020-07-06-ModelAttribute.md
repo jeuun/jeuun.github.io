@@ -8,7 +8,7 @@ author: Jeuun
 ---
 ModelAttribute (07/06)
 
-#ModelAttribute
+# ModelAttribute
 
 1. 모델에 담아서 jsp에서 사용
 2. 요청 파라미터로 넘어온 값들을 메서드 파라미터에 있는 객체(vo)에 바인딩 시켜준다.
