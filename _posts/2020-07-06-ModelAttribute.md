@@ -63,7 +63,7 @@ public Map<String, String> commonCodeMap(){
 
 
 
-- 추가 참고
+- 추가 참고 ---------------------------------------------------------
 
 @ModelAttribute는 커맨드객체를 모델에 담아서 view단 까지 넘기는 역할을 해요.
 여기서 view가 jsp라고 가정할께요
