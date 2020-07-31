@@ -67,11 +67,13 @@ public Map<String, String> commonCodeMap(){
 여기서 view가 jsp라고 가정할께요
 
 만약에 이런 controller가 있고,
+```java
 @GetMapping("/modelAttributeTest")
 public String freemarker(SampleUserVO sampleUserVO){
 return "modelAttributeTest";
 }
-요청이 아래처럼 왔어요.
+```
+요청이 아래처럼 왔어요.<br>
 http://localhost:8080/modelAttributeTest?name=corn&age=30
 
 위와 같이 @ModelAttribute가 없거나, @ModelAttribute가 있는데 alias를 주지 않는 경우에는 Spring이 자동으로 클래스타입의 맨앞을 소문자로 바꿔서 모델(Model)객체에 데이터를 넣어줘요.
@@ -83,23 +85,32 @@ model.addAttribute("sampleUserVO", sampleUserVO); 이런 코드가 사실 생략
 이런식으로요.
 
 근데 나는 modelAttributeTest.jsp에서 sampleUserVO이름 말고 user라는 이름의 객체를 사용하고 싶어요.
+
+```java
 <%=user.getName()%>
 <%=user.getAge()%>
+```
 이런식으로 말이죠.
 
 그러면 어떻게 할까요?
 첫 번째 방법은 model 객체에 "user"란 이름으로 SampleUserVO를 전달하는 거에요.
+
+```java
 @GetMapping("/modelAttributeTest")
 public String freemarker(SampleUserVO sampleUserVO, Model model){
 model.addAttribute("user", sampleUserVO);
 return "modelAttributeTest";
 }
+```
 
 두 번째 방법은 alias를 주는 거에요. 위의 방법보다 더 간편하겠죠?
+
+```java
 @GetMapping("/modelAttributeTest")
 public String freemarker(@ModelAttribute("user") SampleUserVO sampleUserVO){
 return "modelAttributeTest";
 }
+```
 이런식으로하면 view(jsp)에서 user란 이름으로 데이터를 꺼내 쓸 수 있어요.
 
 @ModelAttribute는 커맨드객체를 모델에 담아서 view에 넘길때 사용되어지기 때문에 만약 view에서 커맨드객체를 사용하지 않는다면 굳이 @ModelAttribute를 사용하지 않아도 됩니당
