@@ -59,6 +59,51 @@ public Map<String, String> commonCodeMap(){
 - 만약 모든 뷰에 특정 code를 갖고있어야 한다라고 하면 @ModelAttribute가 붙은 메소드에 code를 리턴하는 클래스를 만든 후 , 
 모든 Controller에서 이 클래스를 상속받으면 반복적인 코딩을 하지않고도, view에서 code를 꺼내쓸 수 있게 된다.
 
+
+
+- 추가 참고
+
+@ModelAttribute는 커맨드객체를 모델에 담아서 view단 까지 넘기는 역할을 해요.
+여기서 view가 jsp라고 가정할께요
+
+만약에 이런 controller가 있고,
+@GetMapping("/modelAttributeTest")
+public String freemarker(SampleUserVO sampleUserVO){
+return "modelAttributeTest";
+}
+요청이 아래처럼 왔어요.
+http://localhost:8080/modelAttributeTest?name=corn&age=30
+
+위와 같이 @ModelAttribute가 없거나, @ModelAttribute가 있는데 alias를 주지 않는 경우에는 Spring이 자동으로 클래스타입의 맨앞을 소문자로 바꿔서 모델(Model)객체에 데이터를 넣어줘요.
+model.addAttribute("sampleUserVO", sampleUserVO); 이런 코드가 사실 생략되어 있는거죠
+
+그러면 view(modelAttributeTest.jsp)에서는 sampleUserVO에 접근해서 데이터를 꺼내야겠죠?
+<%=sampleUserVO.getName()%>
+<%=sampleUSerVO.getAge()%>
+이런식으로요.
+
+근데 나는 modelAttributeTest.jsp에서 sampleUserVO이름 말고 user라는 이름의 객체를 사용하고 싶어요.
+<%=user.getName()%>
+<%=user.getAge()%>
+이런식으로 말이죠.
+
+그러면 어떻게 할까요?
+첫 번째 방법은 model 객체에 "user"란 이름으로 SampleUserVO를 전달하는 거에요.
+@GetMapping("/modelAttributeTest")
+public String freemarker(SampleUserVO sampleUserVO, Model model){
+model.addAttribute("user", sampleUserVO);
+return "modelAttributeTest";
+}
+
+두 번째 방법은 alias를 주는 거에요. 위의 방법보다 더 간편하겠죠?
+@GetMapping("/modelAttributeTest")
+public String freemarker(@ModelAttribute("user") SampleUserVO sampleUserVO){
+return "modelAttributeTest";
+}
+이런식으로하면 view(jsp)에서 user란 이름으로 데이터를 꺼내 쓸 수 있어요.
+
+@ModelAttribute는 커맨드객체를 모델에 담아서 view에 넘길때 사용되어지기 때문에 만약 view에서 커맨드객체를 사용하지 않는다면 굳이 @ModelAttribute를 사용하지 않아도 됩니당
+
 참고 :https://cornswrold.tistory.com/316
   
   
