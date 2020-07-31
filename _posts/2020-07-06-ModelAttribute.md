@@ -36,6 +36,7 @@ HTTP 400 - Bad Request에러를 클라이언트에 던진다.
   - @modelAttribute 메소드 실행 결과로 리턴된 객체를 View 페이지에서 사용 가능
   
 - 메소드에 선언되었을 경우 작동 방식
+
 ```java
 @RequestMapping(value = "getBoardList.do")
 public String getBoardList(Model model){
@@ -51,6 +52,7 @@ public Map<String, String> commonCodeMap(){
     return commonCodeMap;
 }
 ```
+
 1. 클라이언트 getBoardList.do 요청
 2. @ModelAttribute가 설정된 commonCodeMap 실행, return된 값 Model객체에 저장
 3. 이 후 getBoardList() 메소드 실행
