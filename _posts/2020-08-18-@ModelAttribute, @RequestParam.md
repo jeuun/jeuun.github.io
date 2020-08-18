@@ -57,7 +57,7 @@ resultType="board"으로 vo 타입을 설정했다.
   
 - @ModelAttribute만 선언 후 Seq를 꺼내 쓰는 방법으로 변경
  
+ ```java
 BoardVo vo = boardService.findBoard(searchVo.getBoardSeq());
-  
-  
+```
   
