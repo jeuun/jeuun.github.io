@@ -8,11 +8,10 @@ author: Jeuun
 ---
 
 # isNotEmpty
-
 - isNotEmpty
   isNotEmpty는 값이 있을때만 실행되는 동적 쿼리이다. (property의 값이 비어있지 않을때)
   
-  ```java
+ ```java
     <isNotEmpty property="position" prepend="AND">
 			BOARD = #BOARD#
 	  </isNotEmpty>
@@ -21,9 +20,8 @@ author: Jeuun
   - prepared : 있을 때 조건 앞에 붙는 논리 키워드 (AND, OR 등)
 
 # iterate
-
 - iterate
-iterate는 해당 객체가 종료될때까지 반복한다.
+  iterate는 해당 객체가 종료될때까지 반복한다.
 
 ```java
 		<isNotEmpty property="boardList">
