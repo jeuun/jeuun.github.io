@@ -1,0 +1,14 @@
+---
+title: "메모리 사용 방식"
+layout: post
+category: Note
+tags: [메모리 사용 방식]
+excerpt: "메모리 사용 방식"
+author: Jeuun
+---
+메모리 사용 방식
+
+#메모리 사용 방식
+- 스태틱 : 클래스의 놀이터
+- 스택 : 메서드의 놀이터
+- 힙 : 객체의 놀이터
